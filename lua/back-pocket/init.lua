@@ -2,6 +2,7 @@ local M = {}
 
 local config = {
 	items = {},
+	title = 'Back Pocket',
 }
 
 M.setup = function(opts)
@@ -85,7 +86,7 @@ M.choose = function()
 	end
 
 	Snacks.picker {
-		title = 'Commands',
+		title = config.title,
 		items = items_table,
 		format = function(item)
 			local spacing = string.rep(' ', max_name_length - #item.name + 2)

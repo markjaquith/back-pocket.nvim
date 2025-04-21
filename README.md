@@ -27,8 +27,10 @@ Human brains can only remember so much, so it makes sense to have "tiers". Short
     },
   },
   config = {
+		title = 'Back Pocket',
+
 		-- `items` can be a table, or a function that returns a table
-		-- If you use a function, it will be called with a context object
+		-- If you provide a function, it will be called with a context table
 		-- that has the following:
 		--
 		--   - get_git_branch()
