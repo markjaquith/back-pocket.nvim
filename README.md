@@ -15,8 +15,8 @@ Human brains can only remember so much, so it makes sense to have "tiers". Short
 
 ```lua
 {
-	"markjaquith/back-pocket.nvim",
-	lazy = true,
+  "markjaquith/back-pocket.nvim",
+  lazy = true,
   keys = {
     {
       '<leader>p', -- Customize your keybinding here
@@ -27,29 +27,30 @@ Human brains can only remember so much, so it makes sense to have "tiers". Short
     },
   },
   config = {
-		title = 'Back Pocket',
+    title = 'Back Pocket',
 
-		-- `items` can be a table, or a function that returns a table
-		-- If you provide a function, it will be called with a context table
-		-- that has the following:
-		--
-		--   - get_git_branch()
-		--   - in_git_repo()
-		--   - get_github_url()
-		--   - copy(text)
-		--   - file
-		--   - path
-		--   - relative_path
-		--   - absolute_path
+      -- `items` can be a table, or a function that returns a table
+      -- If you provide a function, it will be called with a context table
+      -- that has the following:
+      --
+      --   - get_git_branch()
+      --   - in_git_repo()
+      --   - get_github_url()
+      --   - copy(text)
+      --   - file
+      --   - path
+      --   - relative_path
+      --   - absolute_path
     items = function(ctx)
-			local items = {
-				{
-					name = 'Greet',
-					description = 'Example command that greets the user',
-					command = function () vim.notify('Hello, world!') end,
-				}
-			}
-			local git_items = {
+      local items = {
+        {
+          name = 'Greet',
+          description = 'Example command that greets the user',
+          command = function () vim.notify('Hello, world!') end,
+        }
+      }
+
+      local git_items = {
         {
           name = 'Copy Git Branch Name',
           text = ctx.get_git_branch(),
@@ -57,17 +58,17 @@ Human brains can only remember so much, so it makes sense to have "tiers". Short
             ctx.copy(ctx.get_git_branch())
           end,
         },
-			}
-			
-			if ctx.in_git_repo() then
-				table.insert(items, {
-					name = 'Git Status',
-					description = 'Show git status',
-					command = function() vim.cmd('Git') end,
-				})
-			end
-		end,
-	},
+      }
+
+      if ctx.in_git_repo() then
+        table.insert(items, {
+          name = 'Git Status',
+          description = 'Show git status',
+          command = function() vim.cmd('Git') end,
+        })
+      end
+    end,
+  },
 }
 ```
 
