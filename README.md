@@ -7,7 +7,7 @@ Human brains can only remember so much, so it makes sense to have "tiers". Short
 ## Requirements
 
 - Neovim 0.11 or later
-- snacks.nvim (Used for the command)
+- snacks.nvim (Used for the command palette)
 
 ## Installation
 
